@@ -21,7 +21,7 @@ public class Optional<T> {
 
     }
 
-    private Optional(T value) {
+    private Optional(@Nullable T value) {
         this.value = value;
     }
 
@@ -63,8 +63,7 @@ public class Optional<T> {
     public <X extends Throwable> T orThrow(Supplier<X> t) throws X {
         if (isPresent()) return value;
         throw t.get();
-    }/
-
+    }
 
     public T get() {
         if (isEmpty()) throw new NullPointerException("Value is null");
